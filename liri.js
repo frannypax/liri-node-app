@@ -1,57 +1,93 @@
 
 
 var Twitter = require('twitter'); //importing twitter api
-	var keysFromTwitter = require('./keys.js');  //importing object from keys.js
-	//console.log(keysFromTwitter);
+var keysFromTwitter = require('./keys.js');	//importing object from keys.js
 var Spotify = require('node-spotify-api');
 var request = require('request');
 var file = require('file-system');
 var fs = require('fs');
-// var omdbApi = require('omdb-client'); not needed
-// var omdb = require('omdb'); not needed
 
 //....................................................................
 //TWITTER
-var client = new Twitter(keysFromTwitter); //making a new tweet object
+myTweets = function(){
+	var client = new Twitter(keysFromTwitter); //making a new tweet object
 
-//you can get() or search requests by hashtag, location, by user etc 
-// you can post () i.e. tweeting
-// you can stream () i.e. be connected to the API and triggers an event,
-// which can be responded to by some code.  
+	//you can get() or search requests by hashtag, location, by user etc 
+	// you can post () i.e. tweeting
+	// you can stream () i.e. be connected to the API and triggers an event,
+	// which can be responded to by some code.  
 
-//making a get
-var params ={ //specifying the parameters of request
-	q: '@yaw_testing',
-	count: 20
+	//making a get
+	var params ={ //specifying the parameters of request
+		screen_name: 'yaw_testing',
+		count: 20
+	};
+	client.get('statuses/user_timeline',params, function(error, tweets, response) {
+    	if(error){
+    		console.log("Twitter Error", error);
+    	}
+    	if(!error && response.statusCode === 200){
+    		console.log("Confirm Response status",response.statusCode); //just checking for 200 status
+			//console.log(tweets);
+
+			var tweetDetails=[];
+			for(var i=1; i<tweets.length; i++){
+				console.log("Tweet",i,tweets[i].text) //just asking twitter API to return only the text of the tweet
+
+				tweetDetails.push({
+					"Tweet" : tweets[i].text,
+					'Date and Time tweeted': tweets[i].created_at
+				});
+			}
+			console.log(tweetDetails);
+			//writeToLog(data);
+    	}
+});
 }
-client.get('search/tweets', params, gotData);
+//myTweets();
 
-function gotData(err, data, response){
-	console.log(data);  //gives tweets with all date
-
-	var tweets = data.statuses;
-	for (var i = 0; i<tweets.length; i++){
-		console.log(tweets[i].text); // give only the text of the tweet
-	}
-}
 //............................................................................
 //SPOTIFY
-//connecting to spotify to SEARCH (used to fing artist, album, or track.)
-var spotify = new Spotify({
-	id: 'cd47ca9807b343a4a3855c9e2492fe7d',
-	secret: '297aefc20ebc46e1b3f2bbacd0117c37'
-});
-spotify.search({
-	type: 'track',
-	query: 'All the small things',
-	limit: 4
-}, function(err, data){
-	if(err){
-		return console.log('Error is: ',err);
+//function that will be called to search a song 
+var findSong = function(songName){
+	if(songName === undefined){
+		songName = 'All the small things';
 	}
+	var spotify = new Spotify({
+		id: 'cd47ca9807b343a4a3855c9e2492fe7d',
+		secret: '297aefc20ebc46e1b3f2bbacd0117c37'
+	});
+	spotify.search({ //connect to spotify to SEARCH (used to fing artist, album, or track.)
+		type: 'track', //can also be artist or album
+		query: songName,//'All the small things',
+		limit: 1
+	}, function(err, data){
+		if(err){
+			return console.log('Spotify Error: ',err);
+		}
+		//https://api.spotify.com/v1/search?query=All+the+small+things&type=track&offset=0&limit=1
 
-	console.log(data);
-})
+		if(!err){
+			var songData = data.tracks.items;
+			//console.log(songData);
+
+			var songDataArray = [];
+
+			for(var i=0; i<songData.length; i++){
+				songDataArray.push({
+					'Artist':songData[0].album.artists,
+					'Song name':songData[0].name, 
+					'Preview link':songData[0].preview_url,
+					'Album': songData[0].album.name
+				}	
+				);
+				
+			}
+			console.log(songDataArray);
+		}
+	})
+};
+// findSong();
 //..........................................................................................
 //OMDB
 //Connecting to OMDB to find movies using request -- request has already been imported (line7)
@@ -68,8 +104,9 @@ var findMovie = function(movieName){
 	request(movieUrl, function(error, response, body){
 		if(error){
 			console.log("Error is: ", error);
-		}else{
-			console.log("Status code: ", response.statusCode);
+		}
+		if(!error && response.statusCode===200){
+			console.log("Request Successful - see statusCode",response.statusCode);
 
 			var movieData = JSON.parse(body);
 			// console.log(movieData);
@@ -92,22 +129,40 @@ var findMovie = function(movieName){
 		}
 	});
 };
-findMovie();
+//findMovie();
 //...............................................................................
 //file system Read, Write
-fs.readFile('random.txt', 'utf8', function(err, data){
-	if(err){
-		return console.log("Read Error: ", err);
-	}
-	console.log("The file data is: ",data);
+// fs.readFile('random.txt', 'utf-8', function(err, data){
+// 	if(err){
+// 		return console.log("Read Error: ", err);
+// 	}
+// 	console.log("The file data is: ",data);
 
-})
-fs.appendFile('log.txt', ' FRANKONERO ', function(err){
-	if(err){
-		return console.log("Append Error: ", err);
-	}
-	console.log("saved !");
+// })
+// fs.appendFile('log.txt', ' FRANKONERO ', function(err){
+// 	if(err){
+// 		return console.log("Append Error: ", err);
+// 	}
+// 	console.log("saved !");
 
-})
+// })
 
+
+//.......................................................................
+//CHOOSING A TWEET OR SONG OR MOVIE etc..
+
+var actionDefault = process.argv[2];
+
+
+switch(actionDefault){
+	case 'my-tweets':myTweets();
+	break;
+	case 'spotify-this-song':findSong();
+	break;
+	case 'movie-this':findMovie();
+	break;
+	case 'do-what-it-says':
+	break;
+	default:console.log("Please specify an action or Enter the command correctly");
+}
 
