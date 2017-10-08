@@ -51,7 +51,7 @@ myTweets = function(){
 //function that will be called to search a song 
 var findSong = function(songName){
 	if(songName === undefined){
-		songName = 'All the small things';
+		songName = 'The Sign';
 	}
 	var spotify = new Spotify({
 		id: 'cd47ca9807b343a4a3855c9e2492fe7d',
@@ -75,7 +75,7 @@ var findSong = function(songName){
 
 			for(var i=0; i<songData.length; i++){
 				songDataArray.push({
-					'Artist':songData[0].album.artists,
+					'Artist':songData[0].album.artists[0].name,
 					'Song name':songData[0].name, 
 					'Preview link':songData[0].preview_url,
 					'Album': songData[0].album.name
@@ -151,10 +151,10 @@ var findMovie = function(movieName){
 //.......................................................................
 //CHOOSING A TWEET OR SONG OR MOVIE etc..
 
-var actionDefault = process.argv[2];
+var defaultAction = process.argv[2];
+// var y = process.argv[3];
 
-
-switch(actionDefault){
+	switch(defaultAction){
 	case 'my-tweets':myTweets();
 	break;
 	case 'spotify-this-song':findSong();
@@ -164,5 +164,13 @@ switch(actionDefault){
 	case 'do-what-it-says':
 	break;
 	default:console.log("Please specify an action or Enter the command correctly");
-}
+	};
+
+// function myFunction(x, y) {
+//     if (y === undefined) {
+         
+//     } 
+// }
+
+
 
