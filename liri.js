@@ -1,5 +1,10 @@
 
 
+
+
+
+
+
 var Twitter = require('twitter'); //importing twitter api
 var keysFromTwitter = require('./keys.js');	//importing object from keys.js
 var Spotify = require('node-spotify-api');
@@ -50,7 +55,7 @@ myTweets = function(){
 //SPOTIFY
 //function that will be called to search a song 
 var findSong = function(songName){
-	if(songName === undefined){
+	if(songName === undefined){  // not working for double-worded songs
 		songName = 'The Sign';
 	}
 	var spotify = new Spotify({
@@ -83,7 +88,7 @@ var findSong = function(songName){
 				);
 				
 			}
-			console.log(songDataArray);
+			return console.log(songDataArray);
 		}
 	})
 };
@@ -94,9 +99,15 @@ var findSong = function(songName){
 
 var findMovie = function(movieName){
 
-	if(movieName == undefined){
+	if(movieName === undefined){
 		movieName = "Mr Nobody";
 	}
+
+	//if(movieName ===""){
+	// var movieName = "";
+	// for(var i=3; i<process.argv.length; i++){
+	// movieName += process.argv[i] + " ";
+	//}
 	var movieUrl = "http://www.omdbapi.com/?t="+movieName+"&y=&plot=short&apikey=40e9cece"; 
 	//create your own keys later
 	console.log(movieUrl);
@@ -130,8 +141,11 @@ var findMovie = function(movieName){
 	});
 };
 //findMovie();
+
+
 //...............................................................................
 //file system Read, Write
+
 // fs.readFile('random.txt', 'utf-8', function(err, data){
 // 	if(err){
 // 		return console.log("Read Error: ", err);
@@ -149,22 +163,48 @@ var findMovie = function(movieName){
 
 
 //.......................................................................
+
 //CHOOSING A TWEET OR SONG OR MOVIE etc..
 
-var defaultAction = process.argv[2];
-// var y = process.argv[3];
+var chooseAction = function(action, actionData) {
+  switch (action) {
+    case 'my-tweets':
+      	myTweets();
+      	break;
+    case 'spotify-this-song':
+    	if(actionData){
+    		//console.log(actionData); this will always log process.argv[2]
+    		findSong(actionData);
+    	}
+    	else{
+    		if(process.argv[3] != null){
+    			var songName = process.argv.slice(3).join('+');
+    			findSong(songName);
+    		}
+    		// else{
+    		// 	findSong('The Sign');
+    		// } already captured in line 59
+    	}
+      	//findSong(actionData);
+      	break;
+    case 'movie-this':
+      	findMovie(actionData);
+      	break;
+    case 'do-what-it-says':
+      	doWhatItSays();
+      	break;
+    default:
+      	console.log('Liri doesn\'t know that');
+  }
+}
 
-	switch(defaultAction){
-	case 'my-tweets':myTweets();
-	break;
-	case 'spotify-this-song':findSong();
-	break;
-	case 'movie-this':findMovie();
-	break;
-	case 'do-what-it-says':
-	break;
-	default:console.log("Please specify an action or Enter the command correctly");
-	};
+
+var executeAction = function(argOne, argTwo) { //This function will be called on load of js file
+  chooseAction(argOne, argTwo, argThree);
+};
+
+chooseAction(process.argv[2], process.argv[3], process.argv[4]);
+	
 
 // function myFunction(x, y) {
 //     if (y === undefined) {
