@@ -181,9 +181,9 @@ var chooseAction = function(action, actionData) {
     			var songName = process.argv.slice(3).join('+');
     			findSong(songName);
     		}
-    		// else{
-    		// 	findSong('The Sign');
-    		// } already captured in line 59
+    		else{
+    			findSong('The Sign');
+    		}
     	}
       	//findSong(actionData);
       	break;
