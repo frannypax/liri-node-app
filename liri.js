@@ -19,7 +19,7 @@ myTweets = function(){
 	//making a get
 	var params ={ //specifying the parameters of request
 		screen_name: 'yaw_testing',
-		count: 20
+		count: 21
 	};
 	client.get('statuses/user_timeline',params, function(error, tweets, response) {
     	if(error){
@@ -29,17 +29,18 @@ myTweets = function(){
     		console.log("Confirm Response status",response.statusCode); //just checking for 200 status
 			//console.log(tweets);
 
-			var tweetDetails=[];
+			//var tweetDetails=[];
 			for(var i=1; i<tweets.length; i++){
-				console.log("Tweet",i,tweets[i].text) //just asking twitter API to return only the text of the tweet
+				console.log("Tweet",i,':', tweets[i].text); //asking twitter API to return only the text of the tweet
+				console.log(tweets[i].created_at,"\n\n")
 
-				tweetDetails.push({
-					"Tweet" : tweets[i].text,
-					'Date and Time tweeted': tweets[i].created_at
-				});
-			}
-			console.log(tweetDetails);
-			//writeToLog(data);
+				// tweetDetails.push({
+				// 	"Tweet" : tweets[i].text,
+				// 	'Date and Time tweeted': tweets[i].created_at
+				//});
+			};
+			// console.log(tweetDetails);
+			
     	}
 });
 }
