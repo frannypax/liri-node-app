@@ -1,1 +1,57 @@
- FRANKONERO 
+ FRANKONERO Node User inputs:
+Node User inputs:spotify-this-song single ladies
+Node User inputs:spotify-this-song
+Node User inputs:hi
+Node User inputs:hello
+Node User inputs:
+hello
+Node User inputs:
+hello
+Node User inputs:
+hello
+Bash user inputs
+:
+hello
+Bash user inputs
+:
+hello
+Bash user inputs
+:
+hello
+Bash user inputs:
+
+
+Bash user inputs:spotify-this-song
+Bash user inputs:spotify-this-song
+Bash user inputs:spotify-this-song
+Bash user inputs:spotify-this-song single ladies
+Bash user inputs:movie-this
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this
+Bash user inputs:movie-this
+Bash user inputs:movie-this
+Bash user inputs:movie-this
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this
+Bash user inputs:movie-this
+Bash user inputs:movie-this
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this tarzan
+Bash user inputs:movie-this
+Bash user inputs:movie-this tarzan
+Bash user inputs:
+Bash user inputs:spotify-this-song
+Bash user inputs:movie-this
+Bash user inputs:movie-this
+Bash user inputs:
+Bash user inputs:
+Bash user inputs:spotify-this-song
+Bash user inputs:movie-this

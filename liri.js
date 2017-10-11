@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 var Twitter = require('twitter'); //importing twitter api
 var keysFromTwitter = require('./keys.js');	//importing object from keys.js
 var Spotify = require('node-spotify-api');
@@ -100,9 +94,8 @@ var findSong = function(songName){
 var findMovie = function(movieName){
 
 	if(movieName === undefined){
-		movieName = "Mr Nobody";
-	}
-
+		movieName = "Mr Nobody"
+	};
 	//if(movieName ===""){
 	// var movieName = "";
 	// for(var i=3; i<process.argv.length; i++){
@@ -121,9 +114,10 @@ var findMovie = function(movieName){
 
 			var movieData = JSON.parse(body);
 			// console.log(movieData);
-
-			var movieDataArray = [];
-			movieDataArray.push({ //adding {} to make movieDataArray an oblect
+			
+           
+            	var movieDataArray = [];
+				movieDataArray.push({ //adding {} to make movieDataArray an oblect
 				'Title':movieData.Title,
 				'Release Year':movieData.Year,
 				'IMDB Rating':movieData.imdbRating,
@@ -143,28 +137,46 @@ var findMovie = function(movieName){
 //findMovie();
 
 
+
 //...............................................................................
 //file system Read, Write
+var readRandomFile = function(){
+	fs.readFile('random.txt', 'utf8', function(err, data){
+	if(err){
+		return console.log("Read Error: ", err);
+	}
+	console.log("The file data is: ",data);
+	var commandFromFile = data.split(',');
+	console.log(commandFromFile);
+	chooseAction(commandFromFile[0], commandFromFile[1]);
 
-// fs.readFile('random.txt', 'utf-8', function(err, data){
-// 	if(err){
-// 		return console.log("Read Error: ", err);
-// 	}
-// 	console.log("The file data is: ",data);
+})
 
-// })
-// fs.appendFile('log.txt', ' FRANKONERO ', function(err){
-// 	if(err){
-// 		return console.log("Append Error: ", err);
-// 	}
-// 	console.log("saved !");
+}
+//readRandomFile();
+//
+var logCommand = function(){
 
-// })
+	var inputs = process.argv.slice(2).join(" ");
+	fs.appendFile('log.txt', '\nBash user inputs:'+ inputs , function(err){
+	if(err){
+		return console.log("Append Error: ", err);
+	}
+	//console.log(inputs);
+	console.log("Entry logged!");
+
+})
+
+}
+logCommand();
+
 
 
 //.......................................................................
 
 //CHOOSING A TWEET OR SONG OR MOVIE etc..
+
+var action = process.argv[2];
 
 var chooseAction = function(action, actionData) {
   switch (action) {
@@ -188,29 +200,15 @@ var chooseAction = function(action, actionData) {
       	//findSong(actionData);
       	break;
     case 'movie-this':
-      	findMovie(actionData);
+    	findMovie(actionData);
       	break;
     case 'do-what-it-says':
-      	doWhatItSays();
+      	readRandomFile();
       	break;
     default:
-      	console.log('Liri doesn\'t know that');
+      	console.log('Enter a valid command');
   }
 }
-
-
-var executeAction = function(argOne, argTwo) { //This function will be called on load of js file
-  chooseAction(argOne, argTwo, argThree);
-};
-
-chooseAction(process.argv[2], process.argv[3], process.argv[4]);
+chooseAction(action);
 	
-
-// function myFunction(x, y) {
-//     if (y === undefined) {
-         
-//     } 
-// }
-
-
 
