@@ -142,32 +142,33 @@ var findMovie = function(movieName){
 //...............................................................................
 //file system Read, Write
 var readRandomFile = function(){
-	fs.readFile('random.txt', 'utf8', function(err, data){
-	if(err){
-		return console.log("Read Error: ", err);
+	fs.readFile('random.txt', 'utf8', function(error, data){
+	if(error){
+		return console.log("Read Error: ", error);
 	}
-	console.log("The file data is: ",data);
+	//console.log("The file data is: ",data);
 	var commandFromFile = data.split(',');
 	console.log(commandFromFile);
-	chooseAction(commandFromFile[0], commandFromFile[1]);
 
-})
-
+	if(commandFromFile.length == 2){
+		chooseAction(commandFromFile[0], commandFromFile[1]);
+	}else if(commandFromFile.length == 1){
+		chooseAction(commandFromFile[0]);
+	}
+	});
 }
 //readRandomFile();
-//
 var logCommand = function(){
 
 	var inputs = process.argv.slice(2).join(" ");
-	fs.appendFile('log.txt', '\nBash user inputs:'+ inputs , function(err){
+	fs.appendFile('log.txt', 'Bash user inputs:'+ inputs+'\n', function(err){
 	if(err){
 		return console.log("Append Error: ", err);
 	}
 	//console.log(inputs);
 	console.log("Entry logged!");
 
-})
-
+	})
 }
 logCommand();
 
@@ -204,6 +205,8 @@ var chooseAction = function(action, actionData) {
     	findMovie(actionData);
       	break;
     case 'do-what-it-says':
+      	// var text = readRandomFile(); //assume this returns text
+      	// return text;
       	readRandomFile();
       	break;
     default:
