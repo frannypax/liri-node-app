@@ -1,105 +1,43 @@
- FRANKONERO Node User inputs:
-Node User inputs:spotify-this-song single ladies
-Node User inputs:spotify-this-song
-Node User inputs:hi
-Node User inputs:hello
-Node User inputs:
-hello
-Node User inputs:
-hello
-Node User inputs:
-hello
-Bash user inputs
-:
-hello
-Bash user inputs
-:
-hello
-Bash user inputs
-:
-hello
-Bash user inputs:
+﻿[{"album":{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3"},"href":"https://api.spotify.com/v1/artists/6KImCVD70vtIoJWnq6nGn3","id":"6KImCVD70vtIoJWnq6nGn3","name":"Harry Styles","type":"artist","uri":"spotify:artist:6KImCVD70vtIoJWnq6nGn3"}],"available_markets":["AD","AR","AT","AU","BE","BG","BO","BR","CA","CH","CL","CO","CR","CY","CZ","DE","DK","DO","EC","EE","ES","FI","FR","GB","GR","GT","HK","HN","HU","ID","IE","IS","IT","JP","LI","LT","LU","LV","MC","MT","MX","MY","NI","NL","NO","NZ","PA","PE","PH","PL","PT","PY","SG","SK","SV","TH","TR","TW","US","UY","VN"],"external_urls":{"spotify":"https://open.spotify.com/album/6YDkzHVTEzMXZOVd1r5NqR"},"href":"https://api.spotify.com/v1/albums/6YDkzHVTEzMXZOVd1r5NqR","id":"6YDkzHVTEzMXZOVd1r5NqR","images":[{"height":640,"url":"https://i.scdn.co/image/cbef6581b91bc170cce479f8deb70ff8f89958ee","width":640},{"height":300,"url":"https://i.scdn.co/image/c03f6b3c99b853a124d5dbee28e2eacb9faadf8d","width":300},{"height":64,"url":"https://i.scdn.co/image/7262616feb0f69e0188f491cbbb8fa6aee93231d","width":64}],"name":"Sign of the Times","type":"album","uri":"spotify:album:6YDkzHVTEzMXZOVd1r5NqR"},"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3"},"href":"https://api.spotify.com/v1/artists/6KImCVD70vtIoJWnq6nGn3","id":"6KImCVD70vtIoJWnq6nGn3","name":"Harry Styles","type":"artist","uri":"spotify:artist:6KImCVD70vtIoJWnq6nGn3"}],"available_markets":["AD","AR","AT","AU","BE","BG","BO","BR","CA","CH","CL","CO","CR","CY","CZ","DE","DK","DO","EC","EE","ES","FI","FR","GB","GR","GT","HK","HN","HU","ID","IE","IS","IT","JP","LI","LT","LU","LV","MC","MT","MX","MY","NI","NL","NO","NZ","PA","PE","PH","PL","PT","PY","SG","SK","SV","TH","TR","TW","US","UY","VN"],"disc_number":1,"duration_ms":340706,"explicit":false,"external_ids":{"isrc":"USSM11703595"},"external_urls":{"spotify":"https://open.spotify.com/track/5ELRkzdzz0HvGpMDlfZHkV"},"href":"https://api.spotify.com/v1/tracks/5ELRkzdzz0HvGpMDlfZHkV","id":"5ELRkzdzz0HvGpMDlfZHkV","name":"Sign of the Times","popularity":83,"preview_url":"https://p.scdn.co/mp3-preview/9801b9239ad1b833f1317574ee55b9d7b8426ff1?cid=cd47ca9807b343a4a3855c9e2492fe7d","track_number":1,"type":"track","uri":"spotify:track:5ELRkzdzz0HvGpMDlfZHkV"}]
+"Tweet 1. Morning of October 11 2017"
+
+"Date and Time: Wed Oct 11 14:43:58 +0000 2017"
+"Tweet 2. Still don’t have 20 tweets yet""Date and Time: Wed Oct 11 00:31:27 +0000 2017"
 
 
-Bash user inputs:spotify-this-song
-Bash user inputs:spotify-this-song
-Bash user inputs:spotify-this-song
-Bash user inputs:spotify-this-song single ladies
-Bash user inputs:movie-this
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this
-Bash user inputs:movie-this
-Bash user inputs:movie-this
-Bash user inputs:movie-this
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this
-Bash user inputs:movie-this
-Bash user inputs:movie-this
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this tarzan
-Bash user inputs:movie-this
-Bash user inputs:movie-this tarzan
-Bash user inputs:
-Bash user inputs:spotify-this-song
-Bash user inputs:movie-this
-Bash user inputs:movie-this
-Bash user inputs:
-Bash user inputs:
-Bash user inputs:spotify-this-song
-Bash user inputs:movie-this
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweets
-Bash user inputs:my-tweetsBash user inputs:
-Bash user inputs:
-Bash user inputs:spotify-this-song
-Bash user inputs:spotify-this-song
-Bash user inputs:movie-this
-Bash user inputs:spotify-this-song stayin alive
-Bash user inputs:
-Bash user inputs:do-what-it-says
-Bash user inputs:
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
-Bash user inputs:do-what-it-says
+"Date and Time: Mon Oct 09 22:28:28 +0000 2017""Tweet 3. Made some progress with two - worded songs"
+"Date and Time: Mon Oct 09 21:08:01 +0000 2017""Tweet 4. Still not done with homework"
+
+
+"Date and Time: Mon Oct 09 21:07:37 +0000 2017"
+
+"Date and Time: Mon Oct 09 21:07:06 +0000 2017""Tweet 6. Back to work"
+
+"Tweet 7. Solemn weekend""Tweet 5. Heading for node class at 600""Date and Time: Mon Oct 09 21:06:48 +0000 2017"
+"Tweet 8. Have node class tomorrow""Date and Time: Sat Oct 07 04:36:43 +0000 2017"
+"Tweet 9. Spotify song search not very intuitive"
+"Date and Time: Sat Oct 07 04:36:12 +0000 2017"
+"Tweet 10. Making progress is fun""Date and Time: Sat Oct 07 00:18:53 +0000 2017"
+
+
+"Date and Time: Sat Oct 07 00:01:53 +0000 2017""Tweet 11. Very good documentation on npm"
+
+
+"Date and Time: Fri Oct 06 23:58:17 +0000 2017""Tweet 12. Spending a lot of time on homework"
+"Tweet 13. I need 20 tweets""Date and Time: Wed Oct 04 20:35:58 +0000 2017"
+
+
+"Tweet 14. Node can talk to many many APIs""Date and Time: Wed Oct 04 20:34:14 +0000 2017"
+"Tweet 15. Node saves lives"
+"Date and Time: Wed Oct 04 20:31:56 +0000 2017"
+"Date and Time: Wed Oct 04 20:31:40 +0000 2017"
+"Tweet 16. Node is cool"
+"Tweet 17. This is my 5th tweet .... I’m aiming for at least 20"
+"Date and Time: Wed Oct 04 14:33:58 +0000 2017"
+"Tweet 18. This is my 4th tweet""Date and Time: Wed Oct 04 14:33:28 +0000 2017"
+"Tweet 19. Cold morning right now"
+"Date and Time: Wed Oct 04 14:32:52 +0000 2017"
+"Tweet 20. New setup to test my liribot ... sounds exciting"
+
+"Date and Time: Sun Oct 01 19:05:13 +0000 2017"
+{"Title":"The Matrix","Year":"1999","Rated":"R","Released":"31 Mar 1999","Runtime":"136 min","Genre":"Action, Sci-Fi","Director":"Lana Wachowski, Lilly Wachowski","Writer":"Lilly Wachowski, Lana Wachowski","Actors":"Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving","Plot":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","Language":"English","Country":"USA","Awards":"Won 4 Oscars. Another 34 wins & 45 nominations.","Poster":"https://images-na.ssl-images-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.7/10"},{"Source":"Rotten Tomatoes","Value":"87%"},{"Source":"Metacritic","Value":"73/100"}],"Metascore":"73","imdbRating":"8.7","imdbVotes":"1,338,915","imdbID":"tt0133093","Type":"movie","DVD":"21 Sep 1999","BoxOffice":"N/A","Production":"Warner Bros. Pictures","Website":"http://www.whatisthematrix.com","Response":"True"}

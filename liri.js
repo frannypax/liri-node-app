@@ -31,15 +31,28 @@ myTweets = function(){
 
 			//var tweetDetails=[];
 			for(var i=1; i<tweets.length; i++){
-				console.log("Tweet",i,':', tweets[i].text); //asking twitter API to return only the text of the tweet
-				console.log(tweets[i].created_at,"\n\n")
+				var tweet_text = "Tweet "+ i + ". "+ tweets[i].text;
+				var tweet_time = "Date and Time: "+ tweets[i].created_at;
+				// console.log(tweet_text);
+				// console.log(tweet_time);
+				
+				var tweetDetails = tweet_text + "\n" + tweet_time + "\n\n";
+
+				console.log(tweetDetails);
+				logCommand(tweet_text);
+				logCommand(tweet_time);
+
+		
+
+				//return console.log(tweetDetails);
 
 				// tweetDetails.push({
 				// 	"Tweet" : tweets[i].text,
 				// 	'Date and Time tweeted': tweets[i].created_at
-				//});
+				// });
 			};
-			// console.log(tweetDetails);
+
+			//return console.log(tweetDetails);
 			
     	}
 });
@@ -61,13 +74,13 @@ var findSong = function(songName){
 		type: 'track', //can also be artist or album
 		query: songName,//'All the small things',
 		limit: 1
-	}, function(err, data){
-		if(err){
-			return console.log('Spotify Error: ',err);
+	}, function(error, data){
+		if(error){
+			console.log('Spotify Error: ',error);
 		}
 		//https://api.spotify.com/v1/search?query=All+the+small+things&type=track&offset=0&limit=1
 
-		if(!err){
+		if(!error){
 			var songData = data.tracks.items;
 			//console.log(songData);
 
@@ -79,13 +92,12 @@ var findSong = function(songName){
 					'Song name':songData[0].name, 
 					'Preview link':songData[0].preview_url,
 					'Album': songData[0].album.name
-				}	
-				);
-				
+				});	
 			}
-			return console.log(songDataArray);
+				console.log(songDataArray);
+				logCommand(songData);
 		}
-	})
+	});
 };
 // findSong();
 //..........................................................................................
@@ -102,7 +114,7 @@ var findMovie = function(movieName){
 	// for(var i=3; i<process.argv.length; i++){
 	// movieName += process.argv[i] + " ";
 	//}
-	var movieUrl = "http://www.omdbapi.com/?t="+movieName+"&y=&plot=short&apikey=40e9cece"; 
+	var movieUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece"; 
 	//create your own keys later
 	console.log(movieUrl);
 	
@@ -110,7 +122,7 @@ var findMovie = function(movieName){
 		if(error){
 			console.log("Error is: ", error);
 		}
-		if(!error && response.statusCode===200){
+		if(!error && response.statusCode==200){
 			console.log("Request Successful - see statusCode",response.statusCode);
 
 			var movieData = JSON.parse(body);
@@ -126,12 +138,14 @@ var findMovie = function(movieName){
 				'Country':movieData.Country,
 				'Language':movieData.Language,
 				'Plot':movieData.Plot,
-				'Actors':movieData.Actors});
+				'Actors':movieData.Actors
+			});
 
-			console.log(movieDataArray);
-			//writeToLog(movieDataArray); depends on fs
+			//console.log(movieDataArray);
 			
-			return movieDataArray;
+			
+			console.log(movieDataArray);
+			logCommand(movieData);
 		}
 	});
 };
@@ -148,7 +162,7 @@ var readRandomFile = function(){
 	}
 	//console.log("The file data is: ",data);
 	var commandFromFile = data.split(',');
-	console.log(commandFromFile);
+	return console.log(commandFromFile);
 
 	if(commandFromFile.length == 2){
 		chooseAction(commandFromFile[0], commandFromFile[1]);
@@ -158,19 +172,21 @@ var readRandomFile = function(){
 	});
 }
 //readRandomFile();
-var logCommand = function(){
 
-	var inputs = process.argv.slice(2).join(" ");
-	fs.appendFile('log.txt', 'Bash user inputs:'+ inputs+'\n', function(err){
-	if(err){
-		return console.log("Append Error: ", err);
+var logCommand = function(data){
+
+	fs.appendFile("log.txt", "\r\n")
+	fs.appendFile('log.txt', JSON.stringify(data), function(error){
+	if(error){
+		return console.log("Append Error: ", error);
 	}
-	//console.log(inputs);
-	console.log("Entry logged!");
+
+	return true;
+	//return console.log("Entry logged!");
 
 	})
 }
-logCommand();
+//logCommand();
 
 
 
@@ -202,9 +218,20 @@ var chooseAction = function(action, actionData) {
       	//findSong(actionData);
       	break;
     case 'movie-this':
-    	findMovie(actionData);
+    	if(actionData){
+    		findMovie(actionData);
+    	}else{
+    		if(process.argv[3] != null){
+    			var movieName = process.argv.slice(3).join('+');
+    			findMovie(movieName);
+    		}
+    		else{
+    			findMovie('Mr Nobody');
+    		}
+    	}
+    	//findMovie()
       	break;
-    case 'do-what-it-says':
+    case 'do-what-it-says':	
       	// var text = readRandomFile(); //assume this returns text
       	// return text;
       	readRandomFile();
