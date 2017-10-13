@@ -162,7 +162,7 @@ var readRandomFile = function(){
 	}
 	//console.log("The file data is: ",data);
 	var commandFromFile = data.split(',');
-	return console.log(commandFromFile);
+	console.log(commandFromFile);
 
 	if(commandFromFile.length == 2){
 		chooseAction(commandFromFile[0], commandFromFile[1]);
