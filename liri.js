@@ -237,7 +237,7 @@ var chooseAction = function(action, actionData) {
       	readRandomFile();
       	break;
     default:
-      	console.log('Enter a valid command');
+      	console.log('Enter a valid command:'+'my-tweets or spotify-this-song or movie-this');
   }
 }
 chooseAction(action);
